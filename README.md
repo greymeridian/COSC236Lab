@@ -1,4 +1,4 @@
-# COSC236 — Software Engineering
+# COSC236 — Object Oriented Systems Analysis & Design
 
 Okanagan College — Fall 2026
 
