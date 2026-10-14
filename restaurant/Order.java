@@ -7,6 +7,7 @@ public class Order {
     private List<MenuItem> items = new ArrayList<>();
     
     public void addItem(MenuItem item) {
+    	//Adds item and then prints out "Item <<itemname>> added"
         items.add(item);
         System.out.println("Item " + item.getName() + " added");
     }
