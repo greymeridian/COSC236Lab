@@ -13,9 +13,9 @@ public class RestaurantApp {
         // Increased menu prices by 1.00
         
         // Customer adds items to their order
-        customer.addMenuItemToOrder(pizza);  // Collaborating with MenuItem and Order
-        customer.addMenuItemToOrder(burger);
-        customer.addMenuItemToOrder(soda);
+        customer.addToOrder(pizza);  // Collaborating with MenuItem and Order
+        customer.addToOrder(burger);
+        customer.addToOrder(soda);
         // Changed customer method to .addToOrder()
         
         // Customer places the order
