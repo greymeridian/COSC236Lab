@@ -2,11 +2,11 @@ package restaurant;
 // MenuItem class
 public class MenuItem {
     private String name;
-    private double price;
+    private double priceInDollars;
 
     public MenuItem(String name, double price) {
         this.name = name;
-        this.price = price;
+        this.priceInDollars = price;
     }
 
     public String getName() {
@@ -14,6 +14,6 @@ public class MenuItem {
     }
 
     public double getPrice() {
-        return price;
+        return priceInDollars;
     }
 }
