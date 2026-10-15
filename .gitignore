@@ -1,2 +1,3 @@
-# Eclipse workspace state
-.metadata/
+/build/
+*.class
+.DS_Store
