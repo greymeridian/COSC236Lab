@@ -1,4 +1,4 @@
-package lab4.library;
+package library;
 //Simplified verion of Library Management System
 
 import java.util.ArrayList;
