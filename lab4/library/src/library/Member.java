@@ -17,7 +17,7 @@ public class Member {
 		this.borrowedBooks = borrowedBooks;
 	}
 
-	// TODO: implement functionality of Member class
+	// DONE: implement functionality of Member class
 	
 	public boolean borrowBook(Book book) {
 		if (book.borrow()) {
