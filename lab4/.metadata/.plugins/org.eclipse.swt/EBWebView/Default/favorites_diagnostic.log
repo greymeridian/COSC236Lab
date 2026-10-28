@@ -57,3 +57,22 @@
 2026-10-28 22:57:33.439: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-10-28 22:57:33.439: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-10-28 22:59:44.724: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-28 23:13:57.513: [INFO] CurrentProfilePath: C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-28 23:13:57.513: [INFO] Profiles total count: 1
+2026-10-28 23:13:57.513: [INFO] Profile: name=Profile 1 path=C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-28T22:05:21.489Z
+2026-10-28 23:13:57.513: [INFO] LastUsedProfileDir: C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-28 23:13:57.513: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-28T22:05:21.489Z
+2026-10-28 23:13:57.513: [INFO] OnDoneLoading sync enabled: 0
+2026-10-28 23:13:57.513: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-28 23:13:57.513: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-28 23:13:57.513: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-28 23:14:01.608: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-28 23:14:10.237: [INFO] CurrentProfilePath: C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-28 23:14:10.237: [INFO] Profiles total count: 1
+2026-10-28 23:14:10.237: [INFO] Profile: name=Profile 1 path=C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-28T22:05:21.489Z
+2026-10-28 23:14:10.237: [INFO] LastUsedProfileDir: C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-10-28 23:14:10.237: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\mholt\Documents\Courses\COSC-236\Lab\Lab04\COSC236Lab\lab4\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-10-28T22:05:21.489Z
+2026-10-28 23:14:10.237: [INFO] OnDoneLoading sync enabled: 0
+2026-10-28 23:14:10.237: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-28 23:14:10.237: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-28 23:14:10.237: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

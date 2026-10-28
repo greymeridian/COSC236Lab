@@ -1,6 +1,6 @@
 package library;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Member {
 
@@ -9,9 +9,9 @@ public class Member {
 	private String memberID;
 	private String name;
 	// private borrowedbBooks DONE: implement collection of borrowed books
-	private ArrayList<Book> borrowedBooks;
+	private List<Book> borrowedBooks;
 	
-	public Member(String memberID, String name, ArrayList<Book> borrowedBooks) {
+	public Member(String memberID, String name, List<Book> borrowedBooks) {
 		this.memberID = memberID;
 		this.name = name;
 		this.borrowedBooks = borrowedBooks;
@@ -34,7 +34,7 @@ public class Member {
 			book.setIsAvailable(true);
 			return true;
 		} else {
-			
+			return false;
 		}
 	}
 
