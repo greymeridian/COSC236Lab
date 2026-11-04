@@ -1,4 +1,4 @@
-package lab4.library;
+package library;
 
 public class LibrarianController {
 
