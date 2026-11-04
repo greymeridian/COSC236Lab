@@ -8,7 +8,7 @@ public class Book {
 	private String author;
 	private boolean isAvailable;
 
-	// TODO: implement Book functionality
+	// DONE: implement Book functionality
 	public Book(String title, String author, boolean isAvailable) {
 		this.title = title;
 		this.author = author;
@@ -22,7 +22,6 @@ public class Book {
 	public boolean borrow() {
 		if (!isAvailable) return false;
 		isAvailable = false;
-		
 		return true;
 	}
 	
