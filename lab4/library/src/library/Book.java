@@ -12,7 +12,7 @@ public class Book {
 	public Book(String title, String author, boolean isAvailable) {
 		this.title = title;
 		this.author = author;
-		this.isAvailable = true;
+		this.isAvailable = isAvailable;
 	}
 	
 	public void setIsAvailable(boolean b) {
@@ -20,10 +20,13 @@ public class Book {
 	}
 	
 	public boolean borrow() {
-		return isAvailable;
+		if (!isAvailable) return false;
+		isAvailable = false;
+		
+		return true;
 	}
 	
 	public void returnBook() {
-		
+		isAvailable = true;
 	}
 }
