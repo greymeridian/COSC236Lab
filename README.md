@@ -13,7 +13,7 @@ Repository containing coursework and lab assignments for COSC236.
 
 ### COSC236 Lab 04
 
-Group members: Aman, Felix, Mike, Liam, Ronny
+Group members: Aman, Felix, Mike, Liam, Ronny, Theo
 
 - Class diagram created by Theo
 - Use Case diagram created by Liam
