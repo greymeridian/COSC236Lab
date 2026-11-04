@@ -7,7 +7,7 @@ public class Member {
 
 	private String name;
 	// private borrowedbBooks TODO: implement collection of borrowed books
-	
+
 	// TODO: implement functionality of Member class
 
 }
