@@ -45,9 +45,65 @@ public class Library {
 				available.add(b);
 			}
 		}
-		
+
 		return available;
 
+	}
+
+	public Member findMember(String memberId) {
+		for (Member m : members) {
+			if (m.getMemberID().equals(memberId)) {
+				return m;
+			}
+		}
+
+		return null;
+	}
+
+	public void addBook(String title, String author) {
+		Book b = new Book(title, author, true);
+		catalog.add(b);
+	}
+
+	public void registerMember(String memberId, String name) {
+		Member m = new Member(memberId, name, new ArrayList<>());
+		members.add(m);
+	}
+
+	public boolean borrowBook(String memberId, String title) {
+		Member m = findMember(memberId);
+		Book b = findBookByTitle(title);
+		if (m == null || b == null) {
+			return false;
+		}
+		return m.borrowBook(b);
+	}
+
+	public boolean returnBook(String memberId, String title) {
+		Member m = findMember(memberId);
+		Book b = findBookByTitle(title);
+		if (m == null || b == null) {
+			return false;
+		}
+		return m.returnBook(b);
+	}
+
+	public boolean removeBook(String title) {
+		Book b = findBookByTitle(title);
+		if (b == null || !b.isAvailable()) {
+			return false;
+		}
+		catalog.remove(b);
+		return true;
+	}
+
+	public boolean removeMember(String memberId) {
+		Member m = findMember(memberId);
+		if (m == null) {
+			return false;
+		}
+		members.remove(m);
+		return true;
 	}
 
 }
