@@ -1,147 +1,106 @@
-package lab4.library;
-//Simplified verion of Library Management System
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-
+package library;
 
 public class LibraryApp {
 
- private ArrayList<String> availableBooks = new ArrayList<>();
- private HashMap<String, ArrayList<String>> memberBorrowedBooks = new HashMap<>();
+    public static void main(String[] args) {
+        Library library = new Library();
+        LibrarianController controller = new LibrarianController(library);
 
- // Adds a book to the library catalog
- public void addBook(String bookName) {
-     availableBooks.add(bookName);
-     System.out.println(bookName + " has been added to the catalog.");
- }
+        // Creator: Library creates and manages books and members.
+        library.addBook("Dune", "Frank Herbert");
+        library.addBook("1984", "George Orwell");
+        library.addBook("Moby Dick", "Herman Melville");
 
- // Adds a new member to the library (without a separate class)
- public void addMember(String memberName) {
-     if (!memberBorrowedBooks.containsKey(memberName)) {
-         memberBorrowedBooks.put(memberName, new ArrayList<>());
-         System.out.println("Member " + memberName + " has been added.");
-     } else {
-         System.out.println("Member " + memberName + " already exists.");
-     }
- }
+        library.registerMember("M001", "Alice");
+        library.registerMember("M002", "Bob");
 
- // Borrow a book from the library
- public void borrowBook(String bookName, String memberName) {
-     if (!memberBorrowedBooks.containsKey(memberName)) {
-         System.out.println("Member " + memberName + " not found.");
-         return;
-     }
+        System.out.println("Added Alice and Bob.");
+        showAvailableBooks(library);
 
-     if (availableBooks.contains(bookName)) {
-         availableBooks.remove(bookName);
-         memberBorrowedBooks.get(memberName).add(bookName);
-         System.out.println(memberName + " has successfully borrowed " + bookName);
-     } else {
-         System.out.println(bookName + " is either already borrowed or not available.");
-     }
- }
+        // Look up a book and a member.
+        Book dune = library.findBookByTitle("Dune");
+        if (dune != null) {
+            System.out.println(
+                "Found book: " + dune.getTitle() + " by " + dune.getAuthor()
+            );
+        }
 
- // Return a book to the library
- public void returnBook(String bookName, String memberName) {
-     if (!memberBorrowedBooks.containsKey(memberName)) {
-         System.out.println("Member " + memberName + " not found.");
-         return;
-     }
+        Member alice = library.findMemberByName("Alice");
+        if (alice != null) {
+            System.out.println(
+                "Found member: " + alice.getName()
+                + " (" + alice.getMemberID() + ")"
+            );
+        }
 
-     if (memberBorrowedBooks.get(memberName).contains(bookName)) {
-         memberBorrowedBooks.get(memberName).remove(bookName);
-         availableBooks.add(bookName);
-         System.out.println(memberName + " has successfully returned " + bookName);
-     } else {
-         System.out.println(memberName + " didn't borrow " + bookName);
-     }
- }
+        // Controller delegates borrowing to the domain objects.
+        showResult("Alice borrows Dune",
+            controller.borrowBook("M001", "Dune"));
 
- // Show the available books in the library
- public void showAvailableBooks() {
-     System.out.println("Available Books:");
-     for (String book : availableBooks) {
-         System.out.println(book);
-     }
- }
+        showResult("Bob borrows 1984",
+            controller.borrowBook("M002", "1984"));
 
-//Show members of in the library
-public void showMembers() {
-   System.out.println("Library members:");
-   for (String member : memberBorrowedBooks.keySet()) {
-       System.out.println(member);
-   }
-}
-  
-public static void main(String[] args) {
-	
-	 LibraryApp library = new LibraryApp();
+        // Reject the request because Dune is unavailable.
+        showResult("Bob tries to borrow unavailable Dune",
+            controller.borrowBook("M002", "Dune"));
 
-	 System.out.println(" *** Library management system demo *** ");
-	 
-    // Adding some books to the catalog
-	System.out.println("\n *** Adding \"Dune\" to the library:");
-	library.addBook("Dune");
-	
-	System.out.println("\n *** Adding \"1984\" to the library:");
-	library.addBook("1984"); 
-	
-	System.out.println("\n *** Adding \"Moby Dick\" to the library:");
-    library.addBook("Moby Dick");
+        showAvailableBooks(library);
 
-    // Show available books
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-    
-    // Adding members
-    System.out.println("\n *** Adding \"Alice\" to the library members");
-    library.addMember("Alice");
-    
-    System.out.println("\n *** Adding \"Bob\" to the library members");
-    library.addMember("Bob");
+        // Reject removal while Alice has an outstanding loan.
+        showResult("Remove Alice while she has Dune",
+            library.removeMember("M001"));
 
-    // Show members
-    System.out.println("\n *** Show all members");
-    library.showMembers();
-    
-    // Borrow a book
-    System.out.println("\n *** Alice borrows Dune:");
-    library.borrowBook("Dune", "Alice");
+        // Return the book, then let Bob borrow it.
+        showResult("Alice returns Dune",
+            controller.returnBook("M001", "Dune"));
 
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
+        showResult("Bob borrows Dune",
+            controller.borrowBook("M002", "Dune"));
 
-    System.out.println("\n *** Bob borrows 1984:");
-    library.borrowBook("1984", "Bob");
-    
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-    
-    System.out.println("\nBob borrows Dune:");
-    library.borrowBook("Dune", "Bob");
-    
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-    
-    // Return a book
-    System.out.println("\n *** Alice returns Dune:");
-    library.returnBook("Dune", "Alice");
+        // Reject returning a book the member does not hold.
+        showResult("Alice tries to return Bob's Dune",
+            controller.returnBook("M001", "Dune"));
 
-    // Show available books after returning
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
+        // Reject removal of a borrowed book.
+        showResult("Remove Dune while borrowed",
+            library.removeBook("Dune"));
 
-    System.out.println("\n *** Bob borrows Dune:") ;
-    library.borrowBook("Dune", "Bob");
-    
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
+        showResult("Bob returns Dune",
+            controller.returnBook("M002", "Dune"));
 
-	}
+        showResult("Bob returns 1984",
+            controller.returnBook("M002", "1984"));
+
+        // Demonstrate successful book and member removal.
+        showResult("Remove Moby Dick",
+            library.removeBook("Moby Dick"));
+
+        showResult("Remove Alice",
+            library.removeMember("M001"));
+
+        System.out.println("Alice no longer registered: "
+            + (library.findMemberByName("Alice") == null));
+
+        System.out.println("Moby Dick no longer in catalog: "
+            + (library.findBookByTitle("Moby Dick") == null));
+
+        showAvailableBooks(library);
+    }
+
+    private static void showResult(String action, boolean success) {
+        System.out.println(action + ": "
+            + (success ? "SUCCESS" : "REJECTED"));
+    }
+
+    private static void showAvailableBooks(Library library) {
+        System.out.println("\nAvailable books:");
+
+        for (Book book : library.getAvailableBooks()) {
+            System.out.println(
+                "- " + book.getTitle() + " by " + book.getAuthor()
+            );
+        }
+
+        System.out.println();
+    }
 }
