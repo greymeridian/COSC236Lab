@@ -10,7 +10,7 @@ public class Member {
 	private String name;
 	// private borrowedbBooks DONE: implement collection of borrowed books
 	private List<Book> borrowedBooks;
-	
+
 	public Member(String memberID, String name, List<Book> borrowedBooks) {
 		this.memberID = memberID;
 		this.name = name;
@@ -18,7 +18,7 @@ public class Member {
 	}
 
 	// DONE: implement functionality of Member class
-	
+
 	public boolean borrowBook(Book book) {
 		if (book.borrow()) {
 			borrowedBooks.add(book);
@@ -27,7 +27,7 @@ public class Member {
 			return false;
 		}
 	}
-	
+
 	public boolean returnBook(Book book) {
 		if (borrowedBooks.contains(book)) {
 			borrowedBooks.remove(book);
@@ -38,4 +38,11 @@ public class Member {
 		}
 	}
 
+	public String getMemberID() {
+		return memberID;
+	}
+
+	public String getName() {
+		return name;
+	}
 }

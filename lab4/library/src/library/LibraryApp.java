@@ -1,9 +1,6 @@
 package library;
 //Simplified verion of Library Management System
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class LibraryApp {
 
     public static void main(String[] args) {
@@ -31,94 +28,67 @@ public class LibraryApp {
         System.out.println("\n *** Adding \"Alice\" to the library members");
         library.registerMember("M001", "Alice");
 
-//Show members of in the library
-public void showMembers() {
-   System.out.println("Library members:");
-   for (String member : memberBorrowedBooks.keySet()) {
-       System.out.println(member);
-   }
-}
+        System.out.println("\n *** Adding \"Bob\" to the library members");
+        library.registerMember("M002", "Bob");
 
-public static void main(String[] args) {
+        // Show members
+        System.out.println("\n *** Show all members");
+        library.showMembers();
 
-	 LibraryApp library = new LibraryApp();
+        // borrow a book
+        System.out.println("\n *** Alice borrows Dune:");
+        boolean success1 = controller.borrowBook("M001", "Dune");
+        System.out.println("Success: " + success1);
 
-	 System.out.println(" *** Library management system demo *** ");
-
-    // Adding some books to the catalog
-	System.out.println("\n *** Adding \"Dune\" to the library:");
-	library.addBook("Dune");
-
-	System.out.println("\n *** Adding \"1984\" to the library:");
-	library.addBook("1984");
-
-	System.out.println("\n *** Adding \"Moby Dick\" to the library:");
-    library.addBook("Moby Dick");
-
-    // Show available books
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-
-    // Adding members
-    System.out.println("\n *** Adding \"Alice\" to the library members");
-    library.addMember("Alice");
-
-    System.out.println("\n *** Adding \"Bob\" to the library members");
-    library.addMember("Bob");
-
-    // Show members
-    System.out.println("\n *** Show all members");
-    library.showMembers();
-
-    // Borrow a book
-    System.out.println("\n *** Alice borrows Dune:");
-    library.borrowBook("Dune", "Alice");
+        // show available books after borrowing
+        System.out.println("\n *** Show all books:");
+        library.showAvailableBooks();
 
         System.out.println("\n *** Bob borrows 1984:");
-        library.borrowBook(findMember().memberId, "1984");
+        boolean success2 = controller.borrowBook("M002", "1984");
+        System.out.println("Success: " + success2);
 
-    System.out.println("\n *** Bob borrows 1984:");
-    library.borrowBook("1984", "Bob");
-
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-
-    System.out.println("\nBob borrows Dune:");
-    library.borrowBook("Dune", "Bob");
-
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-
-    // Return a book
-    System.out.println("\n *** Alice returns Dune:");
-    library.returnBook("Dune", "Alice");
-
-        System.out.println("\nBob borrows Dune:");
-        library.borrowBook(findMember().memberId, "Dune");
-
-    System.out.println("\n *** Bob borrows Dune:") ;
-    library.borrowBook("Dune", "Bob");
-
-    // Show available books after borrowing
-    System.out.println("\n *** Show all books:");
-    library.showAvailableBooks();
-
-        // Return a book
-        System.out.println("\n *** Alice returns Dune:");
-        library.returnBook("M002", "Dune");
-
-        // Show available books after returning
+        // show available books after borrowing
         System.out.println("\n *** Show all books:");
         library.showAvailableBooks();
 
-        System.out.println("\n *** Bob borrows Dune:");
-        library.borrowBook("M001", "Dune");
+        // use-case extension:(dune is already borrowed by alice == reject)
+        System.out.println("\n *** Bob (M002) attempts to borrow Dune:");
+        boolean success3 = controller.borrowBook("M002", "Dune");
+        System.out.println("Success: " + success3 + " (Request Rejected)");
 
-        // Show available books after borrowing
+        // show available books
         System.out.println("\n *** Show all books:");
         library.showAvailableBooks();
 
+        // return a book
+        System.out.println("\n *** Alice (M001) returns Dune:");
+        boolean success4 = controller.returnBook("M001", "Dune");
+        System.out.println("Success: " + success4);
+
+        // show available books after reterning
+        System.out.println("\n *** Show all books:");
+        library.showAvailableBooks();
+
+        System.out.println("\n *** Bob (M002) borrows Dune:");
+        boolean success5 = controller.borrowBook("M002", "Dune");
+        System.out.println("Success: " + success5);
+
+        // show available books after borrowing
+        System.out.println("\n *** Show all books:");
+        library.showAvailableBooks();
+
+        // task 6: Lookup a book and lookup a member
+        System.out.println("\n *** Lookup Member 'M001':");
+        Member foundMember = library.findMember("M001");
+        if (foundMember != null) {
+            System.out.println("Found: " + foundMember.getName());
+        }
+
+        System.out.println("\n *** Lookup Book '1984':");
+        Book foundBook = library.findBookByTitle("1984");
+        if (foundBook != null) {
+            System.out.println("Found: " + foundBook.getTitle());
+        }
     }
 }

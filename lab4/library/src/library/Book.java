@@ -14,18 +14,31 @@ public class Book {
 		this.author = author;
 		this.isAvailable = isAvailable;
 	}
-	
+
 	public void setIsAvailable(boolean b) {
 		this.isAvailable = b;
 	}
-	
+
 	public boolean borrow() {
-		if (!isAvailable) return false;
+		if (!isAvailable)
+			return false;
 		isAvailable = false;
 		return true;
 	}
-	
+
 	public void returnBook() {
 		isAvailable = true;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public String getAuthor() {
+		return this.author;
+	}
+
+	public boolean getAvailable() {
+		return this.isAvailable;
 	}
 }
