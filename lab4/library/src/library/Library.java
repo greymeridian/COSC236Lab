@@ -99,7 +99,7 @@ public class Library {
 
 	public boolean removeMember(String memberId) {
 		Member m = findMember(memberId);
-		if (m == null) {
+		if (m == null || !m.getBorrowedBooks().isEmpty()) {
 			return false;
 		}
 		members.remove(m);
