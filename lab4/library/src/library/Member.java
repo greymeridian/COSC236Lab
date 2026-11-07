@@ -31,11 +31,31 @@ public class Member {
 	public boolean returnBook(Book book) {
 		if (borrowedBooks.contains(book)) {
 			borrowedBooks.remove(book);
-			book.setIsAvailable(true);
+			book.returnBook();
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public String getMemberID() {
+		return memberID;
+	}
+
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Book> getBorrowedBooks() {
+		return borrowedBooks;
 	}
 
 }
