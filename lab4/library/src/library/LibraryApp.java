@@ -74,7 +74,7 @@ public class LibraryApp {
         boolean success5 = controller.borrowBook("M002", "Dune");
         System.out.println("Success: " + success5);
 
-        // show available books after borrowing
+        //show available books after borrowing
         System.out.println("\n *** Show all books:");
         library.showAvailableBooks();
 
