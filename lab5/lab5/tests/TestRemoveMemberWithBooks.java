@@ -14,16 +14,16 @@ class TestRemoveMemberWithBooks {
 
 	Library library;
 	Member member;
-	Book book1;
-	Book book2;
-	Book book3;
+	PaperBook book1;
+	PaperBook book2;
+	PaperBook book3;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		this.library = new Library(); // Fresh library: one member, two tests
-		book1 = new Book("Dune");
-		book2 = new Book("1984");
-		book3 = new Book("Moby Dick");
+		book1 = new PaperBook("Dune");
+		book2 = new PaperBook("1984");
+		book3 = new PaperBook("Moby Dick");
 		member = new Member("Dude");
 		library.addMember(member);
 		library.addBook(book1);

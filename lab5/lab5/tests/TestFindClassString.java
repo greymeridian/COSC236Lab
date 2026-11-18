@@ -20,8 +20,8 @@ private Library library;
 
 	Member member1 = new Member("Dude");
 	Member member2 = new Member("Gal");
-	Book book1 = new Book("Dune");
-	Book book2 = new Book("1984");
+	PaperBook book1 = new PaperBook("Dune");
+	PaperBook book2 = new PaperBook("1984");
 
 	@Test
 	void FindMember() {
@@ -44,7 +44,7 @@ private Library library;
 	void FindBook() {
 		library.addBook(book1);
 		library.addBook(book2);
-		Book book = library.findBookByTitle(book1.getTitle());
+		PaperBook book = library.findBookByTitle(book1.getTitle());
 		assert(book == book1);
 		assert(library.booksCount() == 2);
 		library.removeBook(book2);
