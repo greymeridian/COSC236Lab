@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" output="build/restaurant/bin" path="lab3"/>
-	<classpathentry kind="src" output="build/library/bin" path="lab4/library/src"/>
+	<classpathentry excluding="docs/" kind="src" output="build/library" path="lab4"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>
