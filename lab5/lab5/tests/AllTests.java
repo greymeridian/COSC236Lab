@@ -5,7 +5,7 @@ import org.junit.platform.suite.api.Suite;
 
 
 @Suite
-@SelectClasses({TestAddRemoveBooks.class, 
+@SelectClasses({TestAddRemoveBooks.class,
 				TestAddRemoveMembers.class,
 				TestFindClassString.class,
 				TestBorrowBooks.class,

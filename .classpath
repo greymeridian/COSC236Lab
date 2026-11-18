@@ -6,6 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" output="build/restaurant/bin" path="lab3"/>
+	<classpathentry kind="src" output="build/library5" path="lab5"/>
 	<classpathentry excluding="docs/" kind="src" output="build/library" path="lab4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>

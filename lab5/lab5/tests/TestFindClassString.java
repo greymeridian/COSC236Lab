@@ -1,25 +1,23 @@
 package lab5.tests;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import lab5.Book;
-import lab5.Library;
-import lab5.Member;
+import lab5.*;
 
 
 class TestFindClassString {
 
-	
+
 private Library library;
-	
+
 	@BeforeEach
 	void setUp() throws Exception {
 		 this.library = new Library(); // empty library for each test
 	}
-	
+
 	Member member1 = new Member("Dude");
 	Member member2 = new Member("Gal");
 	Book book1 = new Book("Dune");
