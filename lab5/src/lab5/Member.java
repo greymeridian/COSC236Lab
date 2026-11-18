@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class Member {
 
 	private String name;
-	private ArrayList<Book> borrowedBooks; // Book class dependency
+	private ArrayList<PaperBook> borrowedBooks; // PaperBook class dependency
 	
 	public Member(String name) {
 		this.name = name;
@@ -15,7 +15,7 @@ public class Member {
 	public String getName() {
 		return name;
 	}
-	public ArrayList<Book> getBorrowedBooks() { 
+	public ArrayList<PaperBook> getBorrowedBooks() { 
 		return borrowedBooks;
 	}
 	public void setName(String name) {
@@ -24,29 +24,29 @@ public class Member {
 	public String toString() {
 		return "Member: " + name;
 	}
-	public void borrowBook(Book book) {
+	public void borrowBook(PaperBook book) {
 		if (book != null && book.getIsAvailable() == true) {
 			borrowedBooks.add(book);
 			book.setIsAvailable(false);
 		}
 	}
-	public void returnBook(Book book) {
+	public void returnBook(PaperBook book) {
 		if (book != null) {
 			borrowedBooks.remove(book);
 			book.setIsAvailable(true);
 		}
 	}
 	public void listBorrowedBooks() {
-		for (Book book : borrowedBooks)
+		for (PaperBook book : borrowedBooks)
 			System.out.println(book); // book.toString()
 	}
 	public int borrowedBooksCount() {
 		return borrowedBooks.size();
 	}
 	public void returnAllBooks() {
-		Iterator<Book> bookIterator = borrowedBooks.iterator();
+		Iterator<PaperBook> bookIterator = borrowedBooks.iterator();
 	    while(bookIterator.hasNext()) {
-		   	 Book book = bookIterator.next();
+		   	 PaperBook book = bookIterator.next();
 		   	 book.setIsAvailable(true);
 	    }
 	    borrowedBooks.clear(); // clear array of borrowed books
