@@ -3,11 +3,12 @@ package lab5.tests;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
-import lab5.*;
 
 /**
  * COSC236 Lab 05
  * Part 3 (Ronny): Added TestBookDependencyInversion to the JUnit suite.
+ * Part 4 (Theo): No added tests, TestAddRemoveBooks, TestBorrowBooks, and TestController
+ * were modified.
  */
 
 @Suite

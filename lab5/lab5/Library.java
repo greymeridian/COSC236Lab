@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Library {
 
-	private ArrayList<PaperBook> catalog = new ArrayList<>(); // Book dependency
+	private ArrayList<Book> catalog = new ArrayList<>(); // Book dependency
 	private ArrayList<Member> members = new ArrayList<>(); // Member dependency
 
 	public Member findMemberByName(String name) {
@@ -20,8 +20,8 @@ public class Library {
 	       }
 	       return null; // Return null if not found
 	}
-	public PaperBook findBookByTitle (String title) {
-		 for (PaperBook book : catalog) {
+	public Book findBookByTitle (String title) {
+		 for (Book book : catalog) {
 	           if (book.getTitle().equals(title)) {
 	               return book; // Return the found book
 	           }
@@ -31,7 +31,7 @@ public class Library {
 	public void addMember(Member member) {
 		members.add(member);
 	}
-	public void addBook(PaperBook book) {
+	public void addBook(Book book) {
 		catalog.add(book);
 	}
 	public void removeMember(String name) {
@@ -45,10 +45,10 @@ public class Library {
 		}
 	}
 	public void removeBook(String title) {
-		PaperBook book = findBookByTitle(title);
+		Book book = findBookByTitle(title);
 		removeBook(book);
 	}
-	public void removeBook(PaperBook book) {
+	public void removeBook(Book book) {
 		if (book != null)
 		 {
 			catalog.remove(book); // book stays with the member who has it
@@ -60,7 +60,7 @@ public class Library {
 	    }
 	}
 	public void showBooks() {
-		for (PaperBook book : catalog) {
+		for (Book book : catalog) {
 		   	 System.out.println(book); // book.toString()
 	    }
 	}

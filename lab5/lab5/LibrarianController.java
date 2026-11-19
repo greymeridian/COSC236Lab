@@ -3,6 +3,7 @@ package lab5;
 /*
  * Part 3 (Ronny): The show, borrow, and return methods use the Book
  * interface for the objects returned by findBookByTitle.
+ * Part 4 (Theo): Updated addBook to 3 seperate methods for each class of book.
  */
 
 public class LibrarianController {
@@ -21,8 +22,14 @@ public class LibrarianController {
 	public void showMembers() {
 		library.showMembers();
 	}
-	public void addBook(String title) {
+	public void addPaperBook(String title) {
 		library.addBook(new PaperBook(title));  // Book class constructor dependency
+	}
+	public void addEBook(String title) {
+		library.addBook(new EBook(title));
+	}
+	public void addAudioBook(String title) {
+		library.addBook(new AudioBook(title));
 	}
 	public void addMember(String name) {
 		library.addMember(new Member(name)); // Member class constructor dependency
@@ -42,7 +49,7 @@ public class LibrarianController {
 		}
 	}
 	public void showBook(String title) {
-		PaperBook book = library.findBookByTitle(title);
+		Book book = library.findBookByTitle(title);
 		if (book != null) {
 			System.out.println(book);
 		} else {
@@ -60,7 +67,7 @@ public class LibrarianController {
 
 	public void borrowBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
-		PaperBook book = library.findBookByTitle(title);  // use library for search
+		Book book = library.findBookByTitle(title);  // use library for search
 		if (book != null && member != null) {
 			member.borrowBook(book); // member borrows a book, not library
 		} else {
@@ -70,7 +77,7 @@ public class LibrarianController {
 
 	public void returnBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
-		PaperBook book = library.findBookByTitle(title); // use library for search
+		Book book = library.findBookByTitle(title); // use library for search
 		if (book != null && member != null) {
 			member.returnBook(book); // members returns book.
 		} else {
