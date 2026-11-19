@@ -4,8 +4,6 @@
 *.class
 /lab4/.metadata
 
-.project
-.classpath
 .settings/
 .gitattributes
 .idea/
