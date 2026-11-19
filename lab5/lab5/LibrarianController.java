@@ -1,5 +1,10 @@
 package lab5;
 
+/*
+ * Part 3 (Ronny): The show, borrow, and return methods use the Book
+ * interface for the objects returned by findBookByTitle.
+ */
+
 public class LibrarianController {
 
 	Library library; // Library dependency

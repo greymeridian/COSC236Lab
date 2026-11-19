@@ -2,6 +2,10 @@ package lab5;
 
 import java.util.ArrayList;
 
+/*
+ * Part 3 (Ronny): The catalog and its add, find, and remove methods
+ * now work with the Book interface.
+ */
 
 public class Library {
 
