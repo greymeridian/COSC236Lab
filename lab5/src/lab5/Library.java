@@ -3,10 +3,14 @@ package lab5;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/*
+ * Part 3 (Ronny): The catalog and its add, find, and remove methods
+ * now work with the Book interface.
+ */
 
 public class Library {
 	 
-	private ArrayList<PaperBook> catalog = new ArrayList<>(); // PaperBook dependency
+	private ArrayList<Book> catalog = new ArrayList<>(); // Book dependency
 	private ArrayList<Member> members = new ArrayList<>(); // Member dependency
 	
 	public Member findMemberByName(String name) {
@@ -17,8 +21,8 @@ public class Library {
 	       }
 	       return null; // Return null if not found
 	}
-	public PaperBook findBookByTitle (String title) {
-		 for (PaperBook book : catalog) {
+	public Book findBookByTitle (String title) {
+		 for (Book book : catalog) {
 	           if (book.getTitle().equals(title)) {
 	               return book; // Return the found book
 	           }
@@ -28,7 +32,7 @@ public class Library {
 	public void addMember(Member member) {
 		members.add(member);
 	}
-	public void addBook(PaperBook book) {
+	public void addBook(Book book) {
 		catalog.add(book);
 	}
 	public void removeMember(String name) {
@@ -42,10 +46,10 @@ public class Library {
 		}
 	}
 	public void removeBook(String title) {
-		PaperBook book = findBookByTitle(title);
+		Book book = findBookByTitle(title);
 		removeBook(book);
 	}
-	public void removeBook(PaperBook book) {
+	public void removeBook(Book book) {
 		if (book != null)
 			catalog.remove(book); // book stays with the member who has it
 	}
@@ -57,9 +61,9 @@ public class Library {
 	    }
 	}
 	public void showBooks() {
-		Iterator<PaperBook> bookIterator = catalog.iterator();
+		Iterator<Book> bookIterator = catalog.iterator();
 	    while(bookIterator.hasNext()) {
-		   	 PaperBook book = bookIterator.next();
+		   	 Book book = bookIterator.next();
 		   	 System.out.println(book); // book.toString()
 	    }
 	}
