@@ -1,5 +1,10 @@
 package lab5;
 
+/*
+ * Part 3 (Ronny): The show, borrow, and return methods use the Book
+ * interface for the objects returned by findBookByTitle.
+ */
+
 public class LibrarianController {
 	
 	Library library; // Library dependency
@@ -17,7 +22,7 @@ public class LibrarianController {
 		library.showMembers();
 	}
 	public void addBook(String title) {
-		library.addBook(new PaperBook(title));  // PaperBook class constructor dependency
+		library.addBook(new PaperBook(title));  // Book class constructor dependency
 	}
 	public void addMember(String name) {
 		library.addMember(new Member(name)); // Member class constructor dependency
@@ -36,11 +41,11 @@ public class LibrarianController {
 			System.out.println("Member " + name + " not found.");
 	}
 	public void showBook(String title) {
-		PaperBook book = library.findBookByTitle(title);
+		Book book = library.findBookByTitle(title);
 		if (book != null)
 			System.out.println(book);
 		else 
-			System.out.println("PaperBook " + title + " not found.");
+			System.out.println("Book " + title + " not found.");
 	}
 	public void showMemberBooks(String name) {
 		Member member = library.findMemberByName(name);
@@ -52,7 +57,7 @@ public class LibrarianController {
 	
 	public void borrowBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
-		PaperBook book = library.findBookByTitle(title);  // use library for search
+		Book book = library.findBookByTitle(title);  // use library for search
 		if (book != null && member != null)
 			member.borrowBook(book); // member borrows a book, not library 
 		else 	
@@ -61,7 +66,7 @@ public class LibrarianController {
 	
 	public void returnBookByMember(String title, String name) {
 		Member member = library.findMemberByName(name); // use library for search
-		PaperBook book = library.findBookByTitle(title); // use library for search 
+		Book book = library.findBookByTitle(title); // use library for search 
 		if (book != null && member != null)
 			member.returnBook(book); // members returns book. 
 		else  	
