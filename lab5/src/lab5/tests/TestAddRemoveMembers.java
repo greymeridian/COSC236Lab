@@ -6,9 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import lab5.Member;
-import lab5.Library;
-import lab5.Book;
+import lab5.*;
+
+/**
+ * Part 3 (Ronny): Updated the test setup to create PaperBook
+ * objects and keep the variables typed as Book.
+ */
 
 class TestAddRemoveMembers {
 
@@ -22,8 +25,8 @@ class TestAddRemoveMembers {
 	
 	Member member1 = new Member("Dude");
 	Member member2 = new Member("Gal");
-	Book book1 = new Book("Dune");
-	Book book2 = new Book("1984");
+	Book book1 = new PaperBook("Dune");
+	Book book2 = new PaperBook("1984");
 	
 	@Test
 	void AddMember() {
