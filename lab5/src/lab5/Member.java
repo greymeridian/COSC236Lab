@@ -3,10 +3,14 @@ package lab5;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/*
+ * Part 3 (Ronny): Member now uses the Book interface for its
+ * borrowed-books list and its borrow and return methods.
+ */
 public class Member {
 
 	private String name;
-	private ArrayList<PaperBook> borrowedBooks; // PaperBook class dependency
+	private ArrayList<Book> borrowedBooks; // Book interface dependency
 	
 	public Member(String name) {
 		this.name = name;
@@ -15,7 +19,7 @@ public class Member {
 	public String getName() {
 		return name;
 	}
-	public ArrayList<PaperBook> getBorrowedBooks() { 
+	public ArrayList<Book> getBorrowedBooks() { 
 		return borrowedBooks;
 	}
 	public void setName(String name) {
@@ -24,29 +28,29 @@ public class Member {
 	public String toString() {
 		return "Member: " + name;
 	}
-	public void borrowBook(PaperBook book) {
+	public void borrowBook(Book book) {
 		if (book != null && book.getIsAvailable() == true) {
 			borrowedBooks.add(book);
 			book.setIsAvailable(false);
 		}
 	}
-	public void returnBook(PaperBook book) {
+	public void returnBook(Book book) {
 		if (book != null) {
 			borrowedBooks.remove(book);
 			book.setIsAvailable(true);
 		}
 	}
 	public void listBorrowedBooks() {
-		for (PaperBook book : borrowedBooks)
+		for (Book book : borrowedBooks)
 			System.out.println(book); // book.toString()
 	}
 	public int borrowedBooksCount() {
 		return borrowedBooks.size();
 	}
 	public void returnAllBooks() {
-		Iterator<PaperBook> bookIterator = borrowedBooks.iterator();
+		Iterator<Book> bookIterator = borrowedBooks.iterator();
 	    while(bookIterator.hasNext()) {
-		   	 PaperBook book = bookIterator.next();
+		   	 Book book = bookIterator.next();
 		   	 book.setIsAvailable(true);
 	    }
 	    borrowedBooks.clear(); // clear array of borrowed books
