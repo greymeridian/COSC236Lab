@@ -10,6 +10,8 @@ import lab5.*;
 /**
  * Part 3 (Ronny): Updated the test setup to create PaperBook
  * objects and keep the variables typed as Book.
+ * Part 4 (Theo): Updated the test setup to test all three
+ * book classes and make sure they are properly added to the library
  */
 
 class TestAddRemoveBooks {
@@ -22,8 +24,8 @@ class TestAddRemoveBooks {
 	}
 
 	Book book1 = new PaperBook("Dune");
-	Book book2 = new PaperBook("1984");
-	Book book3 = new PaperBook("Moby Dick");
+	Book book2 = new EBook("1984");
+	Book book3 = new AudioBook("Moby Dick");
 	
 	Member member = new Member("Grady Booch");
 	
@@ -34,6 +36,9 @@ class TestAddRemoveBooks {
 		library.addBook(book1);
 		library.addBook(book2);
 		library.addBook(book3);
+		assertInstanceOf(PaperBook.class, book1);
+		assertInstanceOf(EBook.class, book2);
+		assertInstanceOf(AudioBook.class, book3);
 		assertEquals(library.booksCount(), 3, "There should be 3 books in the library");
 	}
 	

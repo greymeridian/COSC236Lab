@@ -1,7 +1,6 @@
 package lab5;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /*
  * Part 3 (Ronny): The catalog and its add, find, and remove methods
@@ -9,10 +8,10 @@ import java.util.Iterator;
  */
 
 public class Library {
-	 
+
 	private ArrayList<Book> catalog = new ArrayList<>(); // Book dependency
 	private ArrayList<Member> members = new ArrayList<>(); // Member dependency
-	
+
 	public Member findMemberByName(String name) {
 		 for (Member member : members) {
 	           if (member.getName().equals(name)) {
@@ -51,19 +50,17 @@ public class Library {
 	}
 	public void removeBook(Book book) {
 		if (book != null)
+		 {
 			catalog.remove(book); // book stays with the member who has it
+		}
 	}
 	public void showMembers() {
-		Iterator<Member> memberIterator = members.iterator();
-	    while(memberIterator.hasNext()) {
-		   	 Member member = memberIterator.next();
+		for (Member member : members) {
 		   	 System.out.println(member);
 	    }
 	}
 	public void showBooks() {
-		Iterator<Book> bookIterator = catalog.iterator();
-	    while(bookIterator.hasNext()) {
-		   	 Book book = bookIterator.next();
+		for (Book book : catalog) {
 		   	 System.out.println(book); // book.toString()
 	    }
 	}
