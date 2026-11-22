@@ -8,7 +8,7 @@ import org.junit.platform.suite.api.Suite;
  * Part 3 (Ronny): Added TestBookDependencyInversion to the JUnit suite.
  * Part 4 (Theo): No added tests, TestAddRemoveBooks, TestBorrowBooks, and
  * TestController were modified.
- * Part 4 (Mike): Added TestBorrowingService to the JUnit suite.
+ * Part 5 (Mike): Added TestBorrowingService to the JUnit suite.
  */
 
 @Suite
