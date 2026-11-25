@@ -7,6 +7,7 @@ import java.util.Iterator;
  * Part 3 (Ronny): Member now uses the Book interface for its
  * borrowed-books list and its borrow and return methods.
  * Part 5 (Mike): Delegated borrowBooks and returnBook methods to BorrowingService class.
+ * Part 6 (Aman): borrowBook and returnBook print the BorrowingBookResult from the service.
  */
 public class Member {
 
@@ -30,22 +31,16 @@ public class Member {
 		return "Member: " + name;
 	}
 	public void borrowBook(Book book) {
-		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.borrowBook(this, book);
-		if (success) {
-			System.out.println(name + " borrowed " + book);
-		} else {
-			System.out.println(name + " could not borrow " + book);
-		}
-	}
+        BorrowingService borrowingService = new BorrowingService();
+        BorrowingBookResult result = borrowingService.borrowBook(this, book);
+        System.out.println("Success: " + result.getIsSuccess() + ": " + result.getBorrowingMessage());
+    }
 	public void returnBook(Book book) {
 		BorrowingService borrowingService = new BorrowingService();
-		boolean success = borrowingService.returnBook(this, book);
-		if (success) {
-			System.out.println(name + " returned " + book);
-		} else {
-			System.out.println(name + " could not return " + book);
-		}
+		BorrowingBookResult result = borrowingService.returnBook(this, book);
+        System.out.println("Success: " + result.getIsSuccess() + ": " + result.getBorrowingMessage());
+
+		
 	}
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
