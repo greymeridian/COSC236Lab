@@ -2,6 +2,8 @@ package lab5;
 
 public class BorrowingService implements BorrowingServiceAPI {
 
+	private int borrowingLimit = 3;
+
 	@Override
 	public BorrowingBookResult borrowBook(Member member, Book book) {
 		if (member == null || book == null) {
@@ -15,6 +17,10 @@ public class BorrowingService implements BorrowingServiceAPI {
 		if (!book.getIsAvailable()) {
 			return new BorrowingBookResult(false, book.getTitle() + " not available.");
 		}
+		
+		if (member.borrowedBooksCount() == borrowingLimit) {
+            return new BorrowingBookResult(false, "Member borrowing limit reached.");
+        }
 
 		member.getBorrowedBooks().add(book);
 		book.setIsAvailable(false);
@@ -27,10 +33,13 @@ public class BorrowingService implements BorrowingServiceAPI {
 			return new BorrowingBookResult(false, "Member or book not found.");
 		}
 
-		// Prevent returning if the book is not in the member's borrowed list
 		if (!member.getBorrowedBooks().contains(book)) {
-			return new BorrowingBookResult(false, book.getTitle() + " not in " + member.getName() + " borrowed list.");
-		}
+            if (book.getIsAvailable()) {
+                return new BorrowingBookResult(false, book.getTitle() + " is not checked out, nothing to return.");
+            } else {
+                return new BorrowingBookResult(false, member.getName() + " has not borrowed " + book.getTitle());
+            }
+        }
 
 		member.getBorrowedBooks().remove(book);
 		book.setIsAvailable(true);
