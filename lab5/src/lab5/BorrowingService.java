@@ -1,5 +1,10 @@
 package lab5;
 
+/*
+ * Part 6 (Aman): borrowBook and returnBook now return a BorrowingBookResult with a
+ * message for each outcome, and members are limited to 3 borrowed books.
+ */
+
 public class BorrowingService implements BorrowingServiceAPI {
 
 	private int borrowingLimit = 3;

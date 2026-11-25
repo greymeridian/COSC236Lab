@@ -1,5 +1,10 @@
 package lab5;
 
+/* Part 6 (Aman): New class. Holds the outcome of a borrow or return:
+ * whether it succeeded and a message explaining why.
+ * 
+ */
+
 public class BorrowingBookResult {
 
 	private String borrowingMessage;
