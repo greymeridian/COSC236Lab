@@ -22,8 +22,8 @@ private Library library;
 		 this.library = new Library(); // empty library for each test
 	}
 	
-	Member member1 = new Member("Dude");
-	Member member2 = new Member("Gal");
+	Member member1 = new Member("Dude", BorrowingService.getInstance());
+	Member member2 = new Member("Gal", BorrowingService.getInstance());
 	Book book1 = new PaperBook("Dune");
 	Book book2 = new PaperBook("1984");
 
