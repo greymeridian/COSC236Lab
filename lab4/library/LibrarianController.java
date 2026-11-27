@@ -2,7 +2,9 @@ package library;
 
 public class LibrarianController {
 	
-	public Library library;
+
+	private final Library library;
+
 	
 	public LibrarianController(Library library) {
 		this.library = library;
