@@ -1,8 +1,12 @@
 package lab5;
 
-public interface BorrowingServiceAPI {
-    public boolean borrowBook(Member member, Book book);
+/*
+ * Part 6 (Aman): borrowBook and returnBook return a BorrowingBookResult instead of a boolean.
+ */
 
-    public boolean returnBook(Member member, Book book);
+public interface BorrowingServiceAPI {
+    public BorrowingBookResult borrowBook(Member member, Book book);
+
+    public BorrowingBookResult returnBook(Member member, Book book);
 
 }
