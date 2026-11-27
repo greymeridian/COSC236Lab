@@ -17,9 +17,9 @@ Lab 5 refactors a Java library management system in stages. Parts 1–3 are comp
 - [x] Part 1 — Sequence diagrams for adding Alice, borrowing Dune, and returning Dune (Liam & Mike)
 - [x] Part 2 — Renamed the concrete `Book` class to `PaperBook`
 - [x] Part 3 — Added the `Book` interface and updated the catalog, borrowing code, and tests (Ronny)
-- [ ] Part 4 — Add more book types (Theo)
-- [ ] Part 5 — Introduce `BorrowingService` (Aman)
-- [ ] Part 6 — Return detailed results from borrowing and returning (Mike)
+- [x] Part 4 — Add more book types (Theo)
+- [x] Part 5 — Introduce `BorrowingService` (Mike)
+- [x] Part 6 — Return detailed results from borrowing and returning (Aman)
 - [ ] Part 7 — Make the borrowing service a singleton (Liam)
 - [ ] Part 8 — Apply Factory Method to book creation (Felix)
 
