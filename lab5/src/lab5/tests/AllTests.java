@@ -9,6 +9,7 @@ import org.junit.platform.suite.api.Suite;
  * Part 4 (Theo): No added tests, TestAddRemoveBooks, TestBorrowBooks, and
  * TestController were modified.
  * Part 5 (Mike): Added TestBorrowingService to the JUnit suite.
+ * Part 8 (Felix): Added TestBookFactories
  */
 
 @Suite
@@ -20,7 +21,8 @@ import org.junit.platform.suite.api.Suite;
 		TestRemoveMemberWithBooks.class,
 		TestController.class,
 		TestBookDependencyInversion.class,
-		TestBorrowingService.class })
+		TestBorrowingService.class,
+		TestBookFactories.class})
 public class AllTests {
 	// No need for test methods here; the suite will run the included classes
 }
