@@ -7,7 +7,23 @@ package lab5;
 
 public class BorrowingService implements BorrowingServiceAPI {
 
-	private int borrowingLimit = 3;
+	private static volatile BorrowingService instance;
+	private int borrowingLimit;
+
+	private BorrowingService() {
+		this.borrowingLimit = 3;
+	}
+
+	public static BorrowingService getInstance() {
+		if (instance == null) {
+			synchronized (BorrowingService.class) {
+				if (instance == null) {
+					instance = new BorrowingService();
+				}
+			}
+		}
+		return instance;
+	}
 
 	@Override
 	public BorrowingBookResult borrowBook(Member member, Book book) {
@@ -22,10 +38,10 @@ public class BorrowingService implements BorrowingServiceAPI {
 		if (!book.getIsAvailable()) {
 			return new BorrowingBookResult(false, book.getTitle() + " not available.");
 		}
-		
+
 		if (member.borrowedBooksCount() == borrowingLimit) {
-            return new BorrowingBookResult(false, "Member borrowing limit reached.");
-        }
+			return new BorrowingBookResult(false, "Member borrowing limit reached.");
+		}
 
 		member.getBorrowedBooks().add(book);
 		book.setIsAvailable(false);
@@ -39,12 +55,12 @@ public class BorrowingService implements BorrowingServiceAPI {
 		}
 
 		if (!member.getBorrowedBooks().contains(book)) {
-            if (book.getIsAvailable()) {
-                return new BorrowingBookResult(false, book.getTitle() + " is not checked out, nothing to return.");
-            } else {
-                return new BorrowingBookResult(false, member.getName() + " has not borrowed " + book.getTitle());
-            }
-        }
+			if (book.getIsAvailable()) {
+				return new BorrowingBookResult(false, book.getTitle() + " is not checked out, nothing to return.");
+			} else {
+				return new BorrowingBookResult(false, member.getName() + " has not borrowed " + book.getTitle());
+			}
+		}
 
 		member.getBorrowedBooks().remove(book);
 		book.setIsAvailable(true);
