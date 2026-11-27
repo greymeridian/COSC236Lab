@@ -20,7 +20,7 @@ Lab 5 refactors a Java library management system in stages. Parts 1–3 are comp
 - [x] Part 4 — Add more book types (Theo)
 - [x] Part 5 — Introduce `BorrowingService` (Mike)
 - [x] Part 6 — Return detailed results from borrowing and returning (Aman)
-- [ ] Part 7 — Make the borrowing service a singleton (Liam)
+- [x] Part 7 — Make the borrowing service a singleton (Liam)
 - [ ] Part 8 — Apply Factory Method to book creation (Felix)
 
 ### Current design
